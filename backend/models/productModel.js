@@ -1,21 +1,22 @@
 import mongoose from "mongoose";
-const reviewSchema = mongoose.Schemma({
-    name: {type:String, required: true},
-    rating: {type:Number, required: true},
-    comment: {type:String, required: true}
-},{
-
-    timestamps:true
-})
-
+const reviewSchema = mongoose.Schemma(
+  {
+    name: { type: String, required: true },
+    rating: { type: Number, required: true },
+    comment: { type: String, required: true },
+  },
+  {
+    timestamps: true,
+  }
+);
 
 const productSchema = mongoose.Schema(
   {
-    user:{
-        type:mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User'
-    }
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "User",
+    },
     name: {
       type: String,
       required: true,
@@ -28,34 +29,34 @@ const productSchema = mongoose.Schema(
       type: Boolean,
       required: true,
     },
-    category:{
-        type:String,
-        required:true,
+    category: {
+      type: String,
+      required: true,
     },
-    description:{
-        type:String,
-        required:true,
+    description: {
+      type: String,
+      required: true,
     },
-    reviews:[reviewSchema],
-    rating:{
-        type:Number,
-        required:true,
-        default:0,
+    reviews: [reviewSchema],
+    rating: {
+      type: Number,
+      required: true,
+      default: 0,
     },
-    numReviews:{
-        type:Number,
-        required:true,
-        default: 0,
+    numReviews: {
+      type: Number,
+      required: true,
+      default: 0,
     },
-    price:{
-        type:String,
-        required:true,
-        default: 0,
+    price: {
+      type: String,
+      required: true,
+      default: 0,
     },
-    countInStock:{
-        type:String,
-        required:true,
-        default: 0,
+    countInStock: {
+      type: String,
+      required: true,
+      default: 0,
     },
   },
   {
@@ -64,6 +65,5 @@ const productSchema = mongoose.Schema(
 );
 
 const Product = mongoose.model("Product", userSchema);
-
 
 export default Product;

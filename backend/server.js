@@ -1,11 +1,12 @@
-const express = require("express");
-const dotenv = require('dotenv')
-const products = require("./data/products");
-
-
-dotenv.config()
+import express from "express";
+import dotenv from "dotenv";
+import products from "./data/products.js";
+import connectDB from "./config/db.js";
+dotenv.config();
 
 const app = express();
+
+connectDB();
 
 app.get("/", (req, res) => {
   res.send("API is Running!");
@@ -20,6 +21,11 @@ app.get("/api/products/:id", (req, res) => {
   res.json(product);
 });
 
-const PORT = process.env.PORT || 4000
+const PORT = process.env.PORT || 4000;
 
-app.listen(PORT, console.log(`Server is listening on ${process.env.NODE_ENV} mode on port ${PORT} !! `));
+app.listen(
+  PORT,
+  console.log(
+    `Server is listening on ${process.env.NODE_ENV} mode on port ${PORT} !! `
+  )
+);

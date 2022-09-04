@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: "1",
     name: "Sony Alpha a7 III",
     image: "/images/sa73.jpeg",
     description:
@@ -13,7 +12,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: "2",
     name: "Sony Alpha a7 IV",
     image: "/images/sa7r4.jpeg",
     description:
@@ -26,7 +24,6 @@ const products = [
     numReviews: 8,
   },
   {
-    _id: "3",
     name: "Sony Alpha a6400",
     image: "/images/sa6400.jpeg",
     description:
@@ -39,7 +36,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: "4",
     name: "Sony Alpha a7II",
     image: "/images/sa72.jpeg",
     description:
@@ -52,7 +48,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: "5",
     name: "Sony Alpha 7C",
     image: "/images/sa7c.jpeg",
     description:

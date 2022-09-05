@@ -16,7 +16,7 @@ const HomeScreen = () => {
 
   return (
     <div>
-      <h1> Things to buy</h1>
+      <h1> Digital Cameras</h1>
       {loading ? (
         <h2>Loading...</h2>
       ) : error ? (

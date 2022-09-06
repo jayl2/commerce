@@ -12,3 +12,13 @@
 - Express
 - Node.js
 - Redux?
+
+
+
+### Homepage
+
+![pic](https://i.imgur.com/RyBcMmG.png)
+
+
+### Main Page
+![image](https://i.imgur.com/YotStLt.png)

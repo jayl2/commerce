@@ -11,12 +11,13 @@ import {
   Form,
 } from "react-bootstrap";
 import Rating from "../components/Rating";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { listProductDetails } from "../actions/productActions";
 import Loader from "../components/Loader";
 
 const ProductScreen = (props) => {
   let { id } = useParams();
+  let navigate = useNavigate();
 
   const [qty, setQty] = useState(0);
 
@@ -28,6 +29,10 @@ const ProductScreen = (props) => {
   useEffect(() => {
     dispatch(listProductDetails(id));
   }, [dispatch, id]);
+
+  const cartHandler = () => {
+    navigate(`/cart/${id}?qty=${qty}`);
+  };
 
   return (
     <div>
@@ -90,6 +95,7 @@ const ProductScreen = (props) => {
                         value={qty}
                         onChange={(e) => setQty(e.target.value)}
                       >
+                        {/* mapping through quantity counts */}
                         {[...Array(product.countInStock).keys()].map((x) => (
                           <option key={x + 1} value={x + 1}>
                             {x + 1}
@@ -103,6 +109,7 @@ const ProductScreen = (props) => {
 
               <ListGroup.Item style={{ margin: "auto" }}>
                 <Button
+                  onClick={cartHandler}
                   size="lg"
                   type="button"
                   variant="warning"

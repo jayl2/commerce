@@ -16,9 +16,4 @@ app.use("/api/products", productRoutes);
 
 const PORT = process.env.PORT || 4000;
 
-app.listen(
-  PORT,
-  console.log(
-    `Server is listening on ${process.env.NODE_ENV} mode on port ${PORT} !! `
-  )
-);
+app.listen(PORT, console.log(`Server is listening on port ${PORT} !! `));

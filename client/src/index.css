@@ -24,8 +24,10 @@ width: 30rem;
 .cardd{
   padding: 1.5rem;
   min-height: 45vh;
+  border: none;
 }
 
 .pic{
   text-align: center;
+
 }

@@ -16,8 +16,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/product/:id" element={<ProductScreen />} />
-            <Route path="/cart/:id" element={<CartPage />} />
-            <Route path="/cart" element={<CartPage />} />
+            <Route path="/cart">
+              <Route path=":id" element={<CartPage />} />
+              <Route path="" element={<CartPage />} />
+            </Route>
           </Routes>
         </Container>
       </main>

@@ -16,10 +16,10 @@
 
 
 
-### Homepage
+### **_Homepage_**
 
 ![pic](https://i.imgur.com/RyBcMmG.png)
 
 
-### Main Page
+### **_Main Page_**
 ![image](https://i.imgur.com/YotStLt.png)

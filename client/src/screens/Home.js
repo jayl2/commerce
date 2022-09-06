@@ -6,7 +6,7 @@ import Loader from "../components/Loader";
 import { Row, Col } from "react-bootstrap";
 import { listProducts } from "../actions/productActions";
 
-const HomeScreen = () => {
+const Home = () => {
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
@@ -36,4 +36,4 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export default Home;

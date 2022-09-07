@@ -9,6 +9,8 @@
 
 - React
 - BootStrap
+- BootSwatch
+- FontAwesome CDN
 - MongoDB
 - Express
 - Node.js

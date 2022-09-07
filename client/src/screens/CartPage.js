@@ -12,33 +12,37 @@ import {
   Card,
 } from "react-bootstrap";
 import Message from "../components/Message";
-import { addToCart } from "../actions/cartActions";
+import { addToCart, removeFromCart } from "../actions/cartActions";
 
 const CartPage = () => {
   let { id } = useParams();
   let navigate = useNavigate();
   let location = useLocation();
-  const removeFromCartHandler = (id) => {
-    console.log("remove");
-  };
 
   //   parsing quantity to only the qty
   const qty = location.search ? Number(location.search.split("=")[1]) : 1;
   console.log(typeof qty);
   console.log(qty);
-
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   console.log(cart);
   const { cartItems } = cart;
   console.log(cartItems, "this is cart items");
-  console.log(cartItems[0].product, "this undeffffined?");
 
   useEffect(() => {
     if (id) {
       dispatch(addToCart(id, qty));
     }
   }, [dispatch, id, qty]);
+
+  const removeFromCartHandler = (id) => {
+    dispatch(removeFromCart(id));
+  };
+
+  const checkoutHandler = () => {
+    console.log("checkout");
+    navigate("/login?redirect=shipping");
+  };
 
   return (
     <div>
@@ -94,7 +98,35 @@ const CartPage = () => {
             </ListGroup>
           )}
         </Col>
-        <Col md={2}></Col>
+        <Col md={4}>
+          <Card>
+            <ListGroup variant="flush">
+              <ListGroup.Item>
+                <h2>
+                  {/* reduce to accumulate quantity */}
+                  Subtotal ({cartItems.reduce((acc, curr) => acc + curr.qty, 0)}
+                  ) Items
+                </h2>
+                {/* reduce to accumulate price */}$
+                {cartItems.reduce(
+                  (acc, curr) => acc + curr.qty * curr.price,
+                  0
+                )}
+              </ListGroup.Item>
+              <ListGroup.Item className="d-grid gap-2">
+                <Button
+                  type="button"
+                  className="btn-block"
+                  variant="warning"
+                  disabled={cartItems.length === 0}
+                  onClick={checkoutHandler}
+                >
+                  Check Out
+                </Button>
+              </ListGroup.Item>
+            </ListGroup>
+          </Card>
+        </Col>
         <Col md={2}></Col>
       </Row>
     </div>

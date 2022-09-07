@@ -34,3 +34,14 @@ width: 30rem;
 a{
   text-decoration: none;
 }
+
+h1{
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+h2{
+  font-size: 1.5rem;
+  padding: 1rem;
+
+}

@@ -5,6 +5,7 @@ import CartPage from "./screens/CartPage";
 import ProductScreen from "./screens/ProductScreen";
 import { Container } from "react-bootstrap";
 import { Routes, Route } from "react-router-dom";
+import LoginPage from "./screens/LoginPage";
 
 function App() {
   return (
@@ -14,12 +15,13 @@ function App() {
       <main className="py-3">
         <Container>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/product/:id" element={<ProductScreen />} />
             <Route path="/cart">
               <Route path=":id" element={<CartPage />} />
               <Route path="" element={<CartPage />} />
             </Route>
+            <Route path="/" element={<Home />} />
           </Routes>
         </Container>
       </main>

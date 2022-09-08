@@ -44,8 +44,8 @@ const RegisterPage = () => {
     <div>
       <FormContainer>
         <h2> Sign Up</h2>
-        {message && <h3>{message}</h3>}
-        {error && <h1> Please try again!</h1>}
+        {message && <p style={{ color: "red" }}>{message}</p>}
+        {error && <p style={{ color: "red" }}> Please fill out form!</p>}
         <Form onSubmit={submitHandler}>
           <Form.Group controlId="name">
             <Form.Label>Name</Form.Label>

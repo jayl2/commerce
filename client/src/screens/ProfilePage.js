@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserDetails } from "../actions/userAction";
+import { getUserDetails, updateUserProfiles } from "../actions/userAction";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -22,6 +22,9 @@ const ProfilePage = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
+  const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
+  const { success } = userUpdateProfile;
+
   useEffect(() => {
     if (!userInfo) {
       navigate("/login");
@@ -41,7 +44,7 @@ const ProfilePage = () => {
     if (password !== verifyPassword) {
       setMessage("Password does not match");
     } else {
-      //dispatch
+      dispatch(updateUserProfiles({ id: user._id, name, email, password }));
     }
   };
 
@@ -51,7 +54,15 @@ const ProfilePage = () => {
         <Col md={3}>
           <h2> User Profile</h2>
           {message && <p style={{ color: "red" }}>{message}</p>}
-          {error && <p style={{ color: "red" }}> Please fill out form!</p>}
+          {error && (
+            <p style={{ textAlign: "center", color: "red" }}>
+              {" "}
+              Please fill out form!
+            </p>
+          )}
+          {success && (
+            <p style={{ textAlign: "center", color: "green" }}> Success!</p>
+          )}
           <Form onSubmit={submitHandler}>
             <Form.Group controlId="name">
               <Form.Label>Name</Form.Label>

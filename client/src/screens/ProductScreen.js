@@ -1,47 +1,67 @@
-import {useState, useEffect} from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  Row,
+  Col,
+  Image,
+  ListGroup,
+  Card,
+  Button,
+  Form,
+} from "react-bootstrap";
 import Rating from "../components/Rating";
-import { useParams } from "react-router-dom";
-import axios from 'axios'
+import { useParams, useNavigate } from "react-router-dom";
+import { listProductDetails } from "../actions/productActions";
+import Loader from "../components/Loader";
 
 const ProductScreen = (props) => {
   let { id } = useParams();
+  let navigate = useNavigate();
 
-const [product, setProduct]=useState({})
+  const [qty, setQty] = useState(1);
 
-useEffect(()=>{
-  const fetchProduct = async () => {
-    const res = await axios.get(`/api/products/${id}`)
-    console.log(res.data)
+  const dispatch = useDispatch();
 
-    setProduct(res.data)
-  }
- fetchProduct()
-},[])
+  const productDetails = useSelector((state) => state.productDetails);
+  const { loading, error, product } = productDetails;
+
+  useEffect(() => {
+    dispatch(listProductDetails(id));
+  }, [dispatch, id]);
+
+  const cartHandler = () => {
+    navigate(`/cart/${id}?qty=${qty}`);
+  };
 
   return (
     <div>
       <Link className="btn btn-dark my-3" to="/">
-        Home
+        Back
       </Link>
+      {/* if loading, display loader */}
+      {loading && <Loader />}
       <Row>
         <Col md={6} className="pic">
           <Image src={product.image} />
         </Col>
 
         <Col md={3}>
-          <ListGroup.Item>
-            <h4>{product.name}</h4>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <Rating
-              value={product.rating}
-              text={`${product.numReviews} Reviews`}
-            ></Rating>
-          </ListGroup.Item>
-          <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
-          <ListGroup.Item>Decription: ${product.description}</ListGroup.Item>
+          <ListGroup variant="flush">
+            <ListGroup.Item>
+              <h4>{product.name}</h4>
+            </ListGroup.Item>
+
+            {/* <ListGroup.Item>
+              <Rating
+                value={product.rating}
+                text={`${product.numReviews} Reviews`}
+              ></Rating>
+            </ListGroup.Item> */}
+
+            <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
+            <ListGroup.Item>Decription: ${product.description}</ListGroup.Item>
+          </ListGroup>
         </Col>
 
         <Col md={3}>
@@ -57,14 +77,6 @@ useEffect(()=>{
               </ListGroup.Item>
 
               <ListGroup.Item>
-                <Button
-                  className="btn-block"
-                  type="button"
-                  disabled={product.countInStock === 0}
-                />
-              </ListGroup.Item>
-
-              <ListGroup.Item>
                 <Row>
                   <Col>Status:</Col>
                   <Col>
@@ -73,8 +85,36 @@ useEffect(()=>{
                 </Row>
               </ListGroup.Item>
 
-              <ListGroup.Item>
-                <Button className="btn-block" type="button" variant="light">
+              {product.countInStock > 0 && (
+                <ListGroup.Item>
+                  <Row>
+                    <Col>Qty</Col>
+                    <Col>
+                      <Form.Control
+                        as="select"
+                        value={qty}
+                        onChange={(e) => setQty(e.target.value)}
+                      >
+                        {/* mapping through quantity counts */}
+                        {[...Array(product.countInStock).keys()].map((x) => (
+                          <option key={x + 1} value={x + 1}>
+                            {x + 1}
+                          </option>
+                        ))}
+                      </Form.Control>
+                    </Col>
+                  </Row>
+                </ListGroup.Item>
+              )}
+
+              <ListGroup.Item style={{ margin: "auto" }}>
+                <Button
+                  onClick={cartHandler}
+                  size="lg"
+                  type="button"
+                  variant="warning"
+                  disabled={product.countInStock === 0}
+                >
                   Add to Cart
                 </Button>
               </ListGroup.Item>

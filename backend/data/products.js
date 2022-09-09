@@ -59,6 +59,20 @@ const products = [
     rating: 3,
     numReviews: 12,
   },
+  {
+    name: "Canon EOS R7 Mirrorless",
+    image: "/images/car7k.jpeg",
+    description:
+      "High Image Quality with a 32.5 Megapixel (APS-C) CMOS SensorHigh-Speed ShootingBlazing Fast Autofocus",
+    brand: "Sony",
+    category: "Electronics",
+    price: 1899.0,
+    countInStock: 11,
+    rating: 4,
+    numReviews: 2,
+  },
 ];
 
 export default products;
+//npm run data:import
+//npm run data:destroy

@@ -40,11 +40,11 @@ const ProductScreen = (props) => {
       </Link>
       {loading && <h2 style={{ textAlign: "center" }}>Please wait...</h2>}
       <Row>
-        <Col md={6} className="pic">
+        <Col md={5} className="pic">
           <Image src={product.image} />
         </Col>
 
-        <Col md={3}>
+        <Col md={5}>
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h4>{product.name}</h4>
@@ -62,8 +62,8 @@ const ProductScreen = (props) => {
           </ListGroup>
         </Col>
 
-        <Col md={3}>
-          <Card>
+        <Col md={2}>
+          <Col>
             <ListGroup variant="flush">
               <ListGroup.Item>
                 <Row>
@@ -109,7 +109,7 @@ const ProductScreen = (props) => {
                 <Button
                   className="btn-block"
                   onClick={cartHandler}
-                  size="lg"
+                  size="md"
                   type="button"
                   variant="success"
                   disabled={product.countInStock === 0}
@@ -118,7 +118,7 @@ const ProductScreen = (props) => {
                 </Button>
               </ListGroup.Item>
             </ListGroup>
-          </Card>
+          </Col>
         </Col>
       </Row>
     </div>

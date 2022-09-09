@@ -4,9 +4,8 @@ import connectDB from "./config/db.js";
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 const PORT = process.env.PORT || 4000;
-
-dotenv.config();
 const app = express();
+dotenv.config();
 app.use(express.json());
 connectDB();
 

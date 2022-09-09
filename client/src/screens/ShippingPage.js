@@ -27,7 +27,7 @@ const ShippingPage = () => {
   return (
     <div>
       <FormContainer>
-        <PaymentNav s1 s2 s3 s4 />
+        {/* <PaymentNav s1 s2 s3 s4 /> */}
         <h1> Shipping </h1>
         <Link to={"/placeorder"} variant="primary" className="btn btn-dark">
           Store pick up

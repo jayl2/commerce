@@ -1,6 +1,6 @@
-import { ORDER_CREATE_REQUEST } from "../constants/orderConstants";
-import { ORDER_CREATE_SUCCESS } from "../constants/orderConstants";
-import { ORDER_CREATE_FAIL } from "../constants/orderConstants";
+import { ORDER_CREATE_REQUEST } from "../types/orderTypes";
+import { ORDER_CREATE_SUCCESS } from "../types/orderTypes";
+import { ORDER_CREATE_FAIL } from "../types/orderTypes";
 import axios from "axios";
 
 export const createOrder = (order) => async (dispatch, getState) => {

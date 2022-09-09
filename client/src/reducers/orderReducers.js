@@ -1,6 +1,6 @@
-import { ORDER_CREATE_FAIL } from "../constants/orderConstants";
-import { ORDER_CREATE_REQUEST } from "../constants/orderConstants";
-import { ORDER_CREATE_SUCCESS } from "../constants/orderConstants";
+import { ORDER_CREATE_FAIL } from "../types/orderTypes";
+import { ORDER_CREATE_REQUEST } from "../types/orderTypes";
+import { ORDER_CREATE_SUCCESS } from "../types/orderTypes";
 
 export const orderCreateReducer = (state = {}, action) => {
   switch (action.type) {

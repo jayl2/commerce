@@ -1,13 +1,10 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import PaymentNav from "../components/PaymentNav";
-import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { createOrder } from "../actions/orderActions.js";
-
-import React from "react";
 
 const PlaceOrderPage = () => {
   const navigate = useNavigate();
@@ -16,11 +13,13 @@ const PlaceOrderPage = () => {
   console.log(cart);
   console.log(cart.paymentMethod);
 
-  cart.itemsPrice = cart.cartItems.reduce(
-    //calculating price
-    (acc, item) => acc + item.price * item.qty,
-    0
-  );
+  cart.itemsPrice = cart.cartItems
+    .reduce(
+      //calculating price
+      (acc, item) => acc + item.price * item.qty,
+      0
+    )
+    .toFixed(2);
 
   const orderCreate = useSelector((state) => state.orderCreate);
   const { order, success, error } = orderCreate;
@@ -45,7 +44,7 @@ const PlaceOrderPage = () => {
 
   return (
     <div>
-      <PaymentNav s1 s2 s3 s4 />
+      {/* <PaymentNav s1 s2 s3 s4 /> */}
       <Row>
         <Col md={7}>
           <ListGroup variant="flush">
@@ -72,15 +71,15 @@ const PlaceOrderPage = () => {
                             rounded
                           />
                         </Col>
-
                         <Col>
                           <Link to={`/product${item.product}`}>
                             {item.name}
                           </Link>
                         </Col>
-                        <Col md={4}>
+                        {/* <Col md={4}>
                           {item.qty} x ${item.price} = ${item.qty * item.price}
-                        </Col>
+                        </Col> */}
+                        <Col md={4}>{item.qty}</Col>
                       </Row>
                     </ListGroup.Item>
                   ))}

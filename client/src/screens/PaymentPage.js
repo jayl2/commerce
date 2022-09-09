@@ -28,7 +28,7 @@ const PaymentPage = () => {
   return (
     <div>
       <FormContainer>
-        <PaymentNav s1 s2 s3 s4 />
+        {/* <PaymentNav s1 s2 s3 s4 /> */}
         <h1> Purchase Options </h1>
         <Form onSubmit={submitHandler}>
           <Form.Group>

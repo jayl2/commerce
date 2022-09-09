@@ -2,10 +2,9 @@ import { useState } from "react";
 import { Form, Col, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import FormContainer from "../components/FormContainer";
-import CheckoutSteps from "../components/CheckoutSteps";
+import PaymentNav from "../components/PaymentNav";
 import { useNavigate } from "react-router-dom";
 import { savePaymentMethod } from "../actions/cartActions";
-
 
 const PaymentPage = () => {
   const navigate = useNavigate();
@@ -13,12 +12,11 @@ const PaymentPage = () => {
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
 
-  if(!shippingAddress){
-    navigate('/shipping')
+  if (!shippingAddress) {
+    navigate("/shipping");
   }
 
-  const [paymentMethod, setPaymentMethod] = useState('PayPal');
-
+  const [paymentMethod, setPaymentMethod] = useState(null);
 
   const dispatch = useDispatch();
   const submitHandler = (e) => {
@@ -30,36 +28,39 @@ const PaymentPage = () => {
   return (
     <div>
       <FormContainer>
-        <CheckoutSteps s1 s2 s3/>
-        <h1> Payment Method </h1>
+        <PaymentNav s1 s2 s3 s4 />
+        <h1> Purchase Options </h1>
         <Form onSubmit={submitHandler}>
           <Form.Group>
-            <Form.Label as='legend'> Select Method</Form.Label>
-          
-          <Col>
-            <Form.Check type='radio' 
-                        label='PayPal or Credit Card' 
-                        id='PayPal' 
-                        name='paymentMethod' 
-                        value='PayPal' 
-                        checked 
-                        onChange={(e)=> setPaymentMethod(e.target.value)}>
-                </Form.Check>
-                {/* <Form.Check 
-                        type='radio' 
-                        label='Stripe' 
-                        id='Stripe' 
-                        name='paymentMethod' 
-                        value='Stripe' 
-                        onChange={(e)=> setPaymentMethod(e.target.value)}>
-                </Form.Check> */}
-          </Col>
+            <Form.Label as="legend"> Select Method</Form.Label>
+
+            <Col>
+              <Form.Check
+                type="radio"
+                label="Pick up"
+                id="Pickup"
+                name="paymentMethod"
+                value="Pickup"
+                required
+                onChange={(e) => setPaymentMethod(e.target.value)}
+              ></Form.Check>
+              <Form.Check
+                type="radio"
+                label="Delivery"
+                id="Delivery"
+                name="paymentMethod"
+                value="Delivery"
+                required
+                onChange={(e) => setPaymentMethod(e.target.value)}
+              ></Form.Check>
+            </Col>
           </Form.Group>
-          <Col><br></br></Col>
+          <Col>
+            <br></br>
+          </Col>
           <Button type="submit" variant="primary">
             Continue
           </Button>
-       
         </Form>
       </FormContainer>
     </div>

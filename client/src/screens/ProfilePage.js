@@ -17,7 +17,7 @@ const ProfilePage = () => {
   const navigate = useNavigate();
 
   const userDetails = useSelector((state) => state.userDetails);
-  const { loading, user, error } = userDetails;
+  const { user, error } = userDetails;
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;

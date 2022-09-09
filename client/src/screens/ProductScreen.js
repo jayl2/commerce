@@ -13,7 +13,6 @@ import {
 import Rating from "../components/Rating";
 import { useParams, useNavigate } from "react-router-dom";
 import { listProductDetails } from "../actions/productActions";
-import Loader from "../components/Loader";
 
 const ProductScreen = (props) => {
   let { id } = useParams();
@@ -39,8 +38,7 @@ const ProductScreen = (props) => {
       <Link className="btn btn-dark my-3" to="/">
         Back
       </Link>
-      {/* if loading, display loader */}
-      {loading && <Loader />}
+      {loading && <h2 style={{ textAlign: "center" }}>Please wait...</h2>}
       <Row>
         <Col md={6} className="pic">
           <Image src={product.image} />

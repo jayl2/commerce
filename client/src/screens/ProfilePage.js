@@ -51,7 +51,7 @@ const ProfilePage = () => {
   return (
     <div>
       <Row>
-        <Col md={3}>
+        <Col md={6}>
           <h2> User Profile</h2>
           {message && <p style={{ color: "red" }}>{message}</p>}
           {error && (
@@ -108,10 +108,6 @@ const ProfilePage = () => {
               Update
             </Button>
           </Form>
-        </Col>
-
-        <Col md={9}>
-          <h2>My Orders</h2>
         </Col>
       </Row>
     </div>

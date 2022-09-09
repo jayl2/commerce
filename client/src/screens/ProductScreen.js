@@ -107,10 +107,11 @@ const ProductScreen = (props) => {
 
               <ListGroup.Item style={{ margin: "auto" }}>
                 <Button
+                  className="btn-block"
                   onClick={cartHandler}
                   size="lg"
                   type="button"
-                  variant="warning"
+                  variant="success"
                   disabled={product.countInStock === 0}
                 >
                   Add to Cart

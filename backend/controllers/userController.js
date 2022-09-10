@@ -5,7 +5,6 @@ import genToken from "../utils/generateToken.js";
 //GET /api/users/login
 const getUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
-
   const user = await User.findOne({ email });
 
   if (user && (await user.matchPassword(password))) {
@@ -25,14 +24,12 @@ const getUser = asyncHandler(async (req, res) => {
 //POST api/users
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
-
   const userExists = await User.findOne({ email });
 
   if (userExists) {
     res.status(400);
     throw new Error("User already exists");
   }
-
   const user = await User.create({
     name,
     email,
@@ -52,8 +49,6 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new Error("Invalid user data");
   }
 });
-
-//
 
 //new user
 //GET /api/users/profile
@@ -83,7 +78,6 @@ const UpdateProfile = asyncHandler(async (req, res) => {
     if (req.body.password) {
       user.password = req.body.password;
     }
-
     const updatedUser = await user.save();
 
     res.json({

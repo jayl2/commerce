@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, Container, NavDropdown, Col } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import logo from "./logo.png";
 import { logout } from "../actions/userAction";
@@ -60,6 +60,25 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
+      <Nav bg="dark" fill variant="tabs" defaultActiveKey="/home">
+        <Nav.Item variant="dark">
+          <Nav.Link variant="dark" href="/home">
+            Active
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1">Loooonsdfsdfger NavLink</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-2">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="disabled" disabled>
+            Disabled
+          </Nav.Link>
+        </Nav.Item>
+      </Nav>
     </header>
   );
 };

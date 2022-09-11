@@ -13,6 +13,7 @@ import PaymentPage from "./screens/PaymentPage";
 import PlaceOrderPage from "./screens/PlaceOrderPage";
 import SortProduct from "./screens/SortProduct";
 import OrderPage from "./screens/OrderPage";
+import FinishOrder from "./screens/FinishOrder";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <main className="py-3">
         <Container>
           <Routes>
+            <Route path="/finish" element={<FinishOrder />} />
             <Route path="/order/:id" element={<OrderPage />} />
             <Route path="/sortproduct" element={<SortProduct />} />
             <Route path="/placeorder" element={<PlaceOrderPage />} />

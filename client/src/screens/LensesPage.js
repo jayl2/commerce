@@ -5,7 +5,7 @@ import Message from "../components/Message";
 import { Row, Col } from "react-bootstrap";
 import { listProducts } from "../actions/productActions";
 
-const SortByName = () => {
+const LensesPage = () => {
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
@@ -37,4 +37,4 @@ const SortByName = () => {
   );
 };
 
-export default SortByName;
+export default LensesPage;

@@ -15,6 +15,7 @@ import OrderPage from "./screens/OrderPage";
 import FinishOrder from "./screens/FinishOrder";
 import SortByPrice from "./screens/SortByPrice";
 import SortByName from "./screens/SortByName";
+import LensesPage from "./screens/LensesPage";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <main className="py-3">
         <Container>
           <Routes>
+            <Route path="/lenses" element={<LensesPage />} />
             <Route path="/finish" element={<FinishOrder />} />
             <Route path="/order/:id" element={<OrderPage />} />
             <Route path="/byprice" element={<SortByPrice />} />

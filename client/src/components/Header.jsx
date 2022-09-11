@@ -61,21 +61,28 @@ const Header = () => {
         </Container>
       </Navbar>
 
-      <Nav bg="dark" fill variant="tabs" defaultActiveKey="/home">
-        <Nav.Item variant="dark">
-          <Nav.Link variant="dark" href="/home">
-            Active
+      <Nav fill variant="tabs" defaultActiveKey="/home">
+        <Nav.Item>
+          <Nav.Link style={{ color: "black" }} href="/home">
+            Cameras
           </Nav.Link>
         </Nav.Item>
+
         <Nav.Item>
-          <Nav.Link eventKey="link-1">Loooonsdfsdfger NavLink</Nav.Link>
+          <Nav.Link style={{ color: "black" }} eventKey="link-1">
+            Lenses
+          </Nav.Link>
         </Nav.Item>
+
         <Nav.Item>
-          <Nav.Link eventKey="link-2">Link</Nav.Link>
+          <Nav.Link style={{ color: "black" }} eventKey="link-2">
+            Sort By Price
+          </Nav.Link>
         </Nav.Item>
+
         <Nav.Item>
-          <Nav.Link eventKey="disabled" disabled>
-            Disabled
+          <Nav.Link style={{ color: "black" }} eventKey="disabled">
+            Sort By Name
           </Nav.Link>
         </Nav.Item>
       </Nav>

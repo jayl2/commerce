@@ -35,4 +35,17 @@ const addOrder = asyncHandler(async (req, res) => {
   }
 });
 
-export { addOrder };
+// GET /api/orders/:id
+const getOrderById = asyncHandler(async (req, res) => {
+  await Order.findById(req.params).populate("user", "name email");
+
+  //if order exist, get the order.
+  if (order) {
+    res.json(order);
+  } else {
+    res.status(404);
+    throw new Error("order not found");
+  }
+});
+
+export { addOrder, getOrderById };

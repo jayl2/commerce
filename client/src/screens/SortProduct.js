@@ -25,7 +25,7 @@ const SortProduct = () => {
       ) : (
         <Row>
           {products
-            .sort((a, b) => (a.name < b.name ? 1 : -1))
+            .sort((a, b) => (a.name > b.name ? 1 : -1))
             .map((product) => (
               <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                 <Product product={product} />

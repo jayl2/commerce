@@ -1,67 +1,45 @@
 import { useEffect } from "react";
 import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import PaymentNav from "../components/PaymentNav";
-import { useNavigate } from "react-router-dom";
+
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { createOrder } from "../actions/orderActions.js";
+import { getOrderDetails } from "../actions/orderActions.js";
 
-const PlaceOrderPage = () => {
-  const navigate = useNavigate();
+const OrderPage = () => {
   const dispatch = useDispatch();
+  const { id } = useParams();
 
-  const cart = useSelector((state) => state.cart);
-  console.log(cart);
-  console.log(cart.paymentMethod);
-
-  cart.itemsPrice = cart.cartItems
-    .reduce(
-      //calculating price
-      (acc, item) => acc + item.price * item.qty,
-      0
-    )
-    .toFixed(2);
-
-  const orderCreate = useSelector((state) => state.orderCreate);
-  const { order, success, error } = orderCreate;
+  const orderDetails = useSelector((state) => state.orderDetails);
+  const { order, loading, error } = orderDetails;
 
   useEffect(() => {
-    if (success) {
-      navigate(`/order/${order._id}`);
-    }
-  }, [navigate, success]);
+    dispatch(getOrderDetails(id));
+  }, []);
 
-  const placeOrderHandler = () => {
-    dispatch(
-      createOrder({
-        orderItems: cart.carItems,
-        shippingAddress: cart.shippingAddress,
-        paymentMethod: cart.paymentMethod,
-        itemsPrice: cart.itemsPrice,
-        shippingPrice: cart.shippingPrice,
-      })
-    );
-  };
-
-  return (
+  return loading ? (
+    <h1>Loading...</h1>
+  ) : error ? (
+    <h1>{error}</h1>
+  ) : (
     <div>
-      {/* <PaymentNav s1 s2 s3 s4 /> */}
+      <h1> Order {order._id} </h1>
       <Row>
         <Col md={7}>
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h2> Purchase Options</h2>
               <b>Method: </b>
-              {cart.paymentMethod}
+              {order.paymentMethod}
             </ListGroup.Item>
 
             <ListGroup.Item>
               <h2> Order Items</h2>
-              {cart.cartItems.length === 0 ? (
-                <h3> Your cart is empty</h3>
+              {order.orderItems.length === 0 ? (
+                <h3> No Orders</h3>
               ) : (
                 <ListGroup variant="flush">
-                  {cart.cartItems.map((item, index) => (
+                  {order.orderItems.map((item, index) => (
                     <ListGroup.Item key={index}>
                       <Row>
                         <Col md={1}>
@@ -98,19 +76,9 @@ const PlaceOrderPage = () => {
               <ListGroup.Item>
                 <Row>
                   <Col>Total</Col>
-                  <Col>${cart.itemsPrice}</Col>
+                  <Col>${order.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
-              <ListGroup>
-                <ListGroup.Item>{error && { error }}</ListGroup.Item>
-              </ListGroup>
-              <Button
-                type="button"
-                className="btn-block"
-                onClick={placeOrderHandler}
-              >
-                Place Order
-              </Button>
             </ListGroup>
           </Card>
         </Col>
@@ -119,4 +87,4 @@ const PlaceOrderPage = () => {
   );
 };
 
-export default PlaceOrderPage;
+export default OrderPage;

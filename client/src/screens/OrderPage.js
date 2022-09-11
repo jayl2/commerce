@@ -7,23 +7,23 @@ import { Link } from "react-router-dom";
 import { getOrderDetails } from "../actions/orderActions.js";
 
 const OrderPage = () => {
-  const dispatch = useDispatch();
-  const { id } = useParams();
+  // const dispatch = useDispatch();
+  // const { id } = useParams();
 
-  const orderDetails = useSelector((state) => state.orderDetails);
-  const { order, loading, error } = orderDetails;
+  // const orderDetails = useSelector((state) => state.orderDetails);
+  // const { order, loading, error } = orderDetails;
 
-  useEffect(() => {
-    dispatch(getOrderDetails(id));
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getOrderDetails(id));
+  // }, []);
 
-  return loading ? (
-    <h1>Loading...</h1>
-  ) : error ? (
-    <h1>{error}</h1>
-  ) : (
-    <div>
-      <h1> Order {order._id} </h1>
+  // return loading ? (
+  //   <h1>Loading...</h1>
+  // ) : error ? (
+  //   <h1>{error}</h1>
+  // ) : (
+  <div>
+    {/* <h1> Order {order._id} </h1>
       <Row>
         <Col md={7}>
           <ListGroup variant="flush">
@@ -58,7 +58,7 @@ const OrderPage = () => {
                         {/* <Col md={4}>
                           {item.qty} x ${item.price} = ${item.qty * item.price}
                         </Col> */}
-                        <Col md={4}>{item.qty}</Col>
+    {/* <Col md={4}>{item.qty}</Col>
                       </Row>
                     </ListGroup.Item>
                   ))}
@@ -82,9 +82,10 @@ const OrderPage = () => {
             </ListGroup>
           </Card>
         </Col>
-      </Row>
-    </div>
-  );
+      </Row> */}{" "}
+    */}
+  </div>;
+  // );
 };
 
 export default OrderPage;

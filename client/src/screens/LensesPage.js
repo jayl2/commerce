@@ -5,7 +5,7 @@ import Message from "../components/Message";
 import { Row, Col } from "react-bootstrap";
 import { listProducts } from "../actions/productActions";
 
-const SortProduct = () => {
+const SortByName = () => {
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
@@ -17,7 +17,7 @@ const SortProduct = () => {
 
   return (
     <div>
-      <h1> Digital Cameras</h1>
+      <h4> Sort: A - Z</h4>
       {loading ? (
         <h2 style={{ textAlign: "center" }}>Please wait...</h2>
       ) : error ? (
@@ -25,10 +25,10 @@ const SortProduct = () => {
       ) : (
         <Row>
           {products
-            .sort((a, b) => (a.name > b.name ? 1 : -1))
-            .map((product) => (
-              <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-                <Product product={product} />
+            .filter((product) => product.category === "Lens")
+            .map((filteredProduct) => (
+              <Col key={filteredProduct._id} sm={12} md={6} lg={4} xl={3}>
+                <Product product={filteredProduct} />
               </Col>
             ))}
         </Row>
@@ -37,4 +37,4 @@ const SortProduct = () => {
   );
 };
 
-export default SortProduct;
+export default SortByName;

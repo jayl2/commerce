@@ -62,26 +62,24 @@ const Header = () => {
       </Navbar>
 
       <Nav fill variant="tabs" defaultActiveKey="/home">
-        <Nav.Item>
-          <Nav.Link style={{ color: "black" }} href="/home">
+        <Nav.Item className="tab">
+          <Nav.Link style={{ color: "white" }} href="/">
             Cameras
           </Nav.Link>
         </Nav.Item>
 
-        <Nav.Item>
-          <Nav.Link style={{ color: "black" }} eventKey="link-1">
-            Lenses
-          </Nav.Link>
-        </Nav.Item>
-
-        <Nav.Item>
-          <Nav.Link style={{ color: "black" }} eventKey="link-2">
+        <Nav.Item className="tab">
+          <Nav.Link
+            style={{ color: "white" }}
+            eventKey="link-2"
+            href="/byprice"
+          >
             Sort By Price
           </Nav.Link>
         </Nav.Item>
 
-        <Nav.Item>
-          <Nav.Link style={{ color: "black" }} eventKey="disabled">
+        <Nav.Item className="tab">
+          <Nav.Link style={{ color: "white" }} eventKey="link-1" href="/byname">
             Sort By Name
           </Nav.Link>
         </Nav.Item>

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import FormContainer from "../components/FormContainer";
-import PaymentNav from "../components/PaymentNav";
 import { useNavigate } from "react-router-dom";
 import { saveShippingAddress } from "../actions/cartActions";
 import { Link } from "react-router-dom";
@@ -27,7 +26,6 @@ const ShippingPage = () => {
   return (
     <div>
       <FormContainer>
-        {/* <PaymentNav s1 s2 s3 s4 /> */}
         <h1> Shipping </h1>
         <Link to={"/payment"} variant="primary" className="btn btn-dark">
           Store pick up

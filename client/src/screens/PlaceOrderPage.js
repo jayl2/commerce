@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import PaymentNav from "../components/PaymentNav";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { createOrder } from "../actions/orderActions.js";
@@ -41,11 +40,11 @@ const PlaceOrderPage = () => {
         shippingPrice: cart.shippingPrice,
       })
     );
+    navigate("/finish");
   };
 
   return (
     <div>
-      {/* <PaymentNav s1 s2 s3 s4 /> */}
       <Row>
         <Col md={7}>
           <ListGroup variant="flush">

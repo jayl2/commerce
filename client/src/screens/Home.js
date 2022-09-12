@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <div>
-      <h1> Digital Cameras</h1>
+      <h1> All Products</h1>
       {loading ? (
         <h2 style={{ textAlign: "center" }}>Please wait...</h2>
       ) : error ? (

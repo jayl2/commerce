@@ -25,16 +25,19 @@ h3{
 width: 25rem;
 }
 
-.cardd, .card{
-  padding: 4rem;
-  min-height: 36vh;
-  border:none;
-
+.card-img{
+  width: 80%
 }
+
+.cardd, .card{
+  padding: 2.5rem;
+  min-height: 45vh;
+  border:none
+}
+
 .card-img:hover{
   box-shadow:rgb(50, 49, 49);
-  width: 105%;
-  border-left:2px;
+  width: 100%;
 }
 
 .pic{

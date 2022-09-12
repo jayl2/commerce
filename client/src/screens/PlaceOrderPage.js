@@ -76,9 +76,9 @@ const PlaceOrderPage = () => {
                             {item.name}
                           </Link>
                         </Col>
-                        {/* <Col md={4}>
+                        <Col md={4}>
                           {item.qty} x ${item.price} = ${item.qty * item.price}
-                        </Col> */}
+                        </Col>
                         <Col md={4}>{item.qty}</Col>
                       </Row>
                     </ListGroup.Item>
@@ -100,9 +100,7 @@ const PlaceOrderPage = () => {
                   <Col>${cart.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
-              <ListGroup>
-                <ListGroup.Item>{error && { error }}</ListGroup.Item>
-              </ListGroup>
+
               <Button
                 type="button"
                 className="btn-block"

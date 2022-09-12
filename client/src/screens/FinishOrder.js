@@ -11,8 +11,6 @@ const FinishOrder = () => {
     new Date().getSeconds();
   console.log(time);
 
-  //   cont time = new
-
   return (
     <div>
       <Row>

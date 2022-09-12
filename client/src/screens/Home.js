@@ -28,15 +28,26 @@ const Home = () => {
         <Message variant="danger">{error}</Message>
       ) : (
         <Row>
-          {products.map((product) => (
+          {products
+            .filter((product) => product.category === "Cameras")
+            .map((product) => (
+              <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                <Product product={product} />
+              </Col>
+            ))}
+        </Row>
+      )}
+      <h3> Lenses</h3>
+      <Row>
+        {products
+          .filter((product) => product.category === "Lens")
+          .map((product) => (
             <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
               <Product product={product} />
             </Col>
           ))}
-        </Row>
+      </Row>
       )}
-
-      <h3> Lenses</h3>
     </div>
   );
 };

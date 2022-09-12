@@ -69,7 +69,7 @@ const Header = () => {
         </Nav.Item>
 
         <Nav.Item className="tab">
-          <Nav.Link style={{ color: "white" }} href="/">
+          <Nav.Link style={{ color: "white" }} href="/cameras">
             Cameras
           </Nav.Link>
         </Nav.Item>

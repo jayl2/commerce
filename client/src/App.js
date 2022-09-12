@@ -16,6 +16,7 @@ import FinishOrder from "./screens/FinishOrder";
 import SortByPrice from "./screens/SortByPrice";
 import SortByName from "./screens/SortByName";
 import LensesPage from "./screens/LensesPage";
+import CamerasPage from "./screens/CamerasPage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Container>
           <Routes>
             <Route path="/lenses" element={<LensesPage />} />
+            <Route path="/cameras" element={<CamerasPage />} />
             <Route path="/finish" element={<FinishOrder />} />
             <Route path="/order/:id" element={<OrderPage />} />
             <Route path="/byprice" element={<SortByPrice />} />

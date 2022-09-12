@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { register } from "../actions/userAction";
 import FormContainer from "../components/FormContainer";
-import CheckoutSteps from "../components/CheckoutSteps";
-import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { saveShippingAddress } from "../actions/cartActions";
-
+import { Link } from "react-router-dom";
 
 const ShippingPage = () => {
   const navigate = useNavigate();
@@ -29,15 +26,18 @@ const ShippingPage = () => {
   return (
     <div>
       <FormContainer>
-        <CheckoutSteps s1 s2/>
         <h1> Shipping </h1>
+        <Link to={"/payment"} variant="primary" className="btn btn-dark">
+          Store pick up
+        </Link>
+        <br></br>
+        <br></br>
         <Form onSubmit={submitHandler}>
           <Form.Group controlId="address">
             <Form.Label>Address</Form.Label>
             <Form.Control
               type="text"
               value={address}
-              required
               onChange={(e) => setAddress(e.target.value)}
             ></Form.Control>
           </Form.Group>
@@ -47,8 +47,8 @@ const ShippingPage = () => {
             <Form.Control
               type="text"
               value={city}
-              required
               onChange={(e) => setCity(e.target.value)}
+              required
             ></Form.Control>
           </Form.Group>
 
@@ -57,8 +57,8 @@ const ShippingPage = () => {
             <Form.Control
               type="text"
               value={postalCode}
-              required
               onChange={(e) => setPostalCode(e.target.value)}
+              required
             ></Form.Control>
           </Form.Group>
 
@@ -67,12 +67,13 @@ const ShippingPage = () => {
             <Form.Control
               type="text"
               value={country}
-              required
               onChange={(e) => setCountry(e.target.value)}
+              required
             ></Form.Control>
           </Form.Group>
+          <br></br>
 
-          <Button type="submit" variant="primary">
+          <Button type="submit" variant="dark">
             Continue
           </Button>
         </Form>

@@ -8,7 +8,7 @@ const Footer = () => {
       <Container>
         <Row>
           <Col className="text-center py-3">
-            <a href="http://www.linkedin.com" target="_blank">
+            <a className="link" href="http://www.linkedin.com" target="_blank">
               Jay Leung
             </a>
           </Col>

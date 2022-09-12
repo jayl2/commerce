@@ -12,19 +12,21 @@ const Product = ({ product }) => {
         </Link>
         <Card.Body>
           <Link to={`/product/${product._id}`}>
-            <Card.Title as="div">
+            <Card.Title>
               <b>{product.name}</b>
             </Card.Title>
           </Link>
 
           {/* Ratings */}
-          {/* <Card.Text as="div">
+          <Card.Text>
             <Rating
               value={product.rating}
-              text={`${product.numReviews} Reviews`} */}
-          {/* /> */}
-          {/* </Card.Text> */}
-          <Card.Text as="h3">${product.price}</Card.Text>
+              // text={`${product.numReviews} Reviews`}
+            />
+          </Card.Text>
+          <Card.Text as="h5" className="my-2">
+            ${product.price}
+          </Card.Text>
         </Card.Body>
       </Card>
     </div>

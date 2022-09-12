@@ -13,9 +13,8 @@ import {
 import Rating from "../components/Rating";
 import { useParams, useNavigate } from "react-router-dom";
 import { listProductDetails } from "../actions/productActions";
-import Loader from "../components/Loader";
 
-const ProductScreen = (props) => {
+const ProductPage = (props) => {
   let { id } = useParams();
   let navigate = useNavigate();
 
@@ -24,7 +23,7 @@ const ProductScreen = (props) => {
   const dispatch = useDispatch();
 
   const productDetails = useSelector((state) => state.productDetails);
-  const { loading, error, product } = productDetails;
+  const { loading, product } = productDetails;
 
   useEffect(() => {
     dispatch(listProductDetails(id));
@@ -36,36 +35,35 @@ const ProductScreen = (props) => {
 
   return (
     <div>
-      <Link className="btn btn-dark my-3" to="/">
+      <Link className="btn btn-secondary my-5" to="/">
         Back
       </Link>
-      {/* if loading, display loader */}
-      {loading && <Loader />}
+      {loading && <h2 style={{ textAlign: "center" }}>Please wait...</h2>}
       <Row>
-        <Col md={6} className="pic">
+        <Col md={4} className="pic">
           <Image src={product.image} />
         </Col>
 
-        <Col md={3}>
+        <Col md={5}>
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h4>{product.name}</h4>
             </ListGroup.Item>
 
-            {/* <ListGroup.Item>
+            <ListGroup.Item>
               <Rating
                 value={product.rating}
                 text={`${product.numReviews} Reviews`}
               ></Rating>
-            </ListGroup.Item> */}
+            </ListGroup.Item>
 
             <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
             <ListGroup.Item>Decription: ${product.description}</ListGroup.Item>
           </ListGroup>
         </Col>
 
-        <Col md={3}>
-          <Card>
+        <Col md={2}>
+          <Col>
             <ListGroup variant="flush">
               <ListGroup.Item>
                 <Row>
@@ -109,21 +107,22 @@ const ProductScreen = (props) => {
 
               <ListGroup.Item style={{ margin: "auto" }}>
                 <Button
+                  className="btn-block"
                   onClick={cartHandler}
-                  size="lg"
+                  size="md"
                   type="button"
-                  variant="warning"
+                  variant="success"
                   disabled={product.countInStock === 0}
                 >
                   Add to Cart
                 </Button>
               </ListGroup.Item>
             </ListGroup>
-          </Card>
+          </Col>
         </Col>
       </Row>
     </div>
   );
 };
 
-export default ProductScreen;
+export default ProductPage;

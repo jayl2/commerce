@@ -5,9 +5,12 @@ import {
   PRODUCT_DETAILS_REQUEST,
   PRODUCT_DETAILS_SUCCESS,
   PRODUCT_DETAILS_FAIL,
-} from "../constants/productConstants";
+} from "../types/productTypes";
 
 export const productListReducer = (state = { products: [] }, action) => {
+  console.log(action, " this is action");
+  console.log(action.type, "this is action.type");
+
   switch (action.type) {
     case PRODUCT_LIST_REQUEST:
       return { loading: true, products: [] };

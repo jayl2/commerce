@@ -2,15 +2,7 @@ import React from "react";
 import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Row,
-  Col,
-  ListGroup,
-  Image,
-  Form,
-  Button,
-  Card,
-} from "react-bootstrap";
+import { Row, Col, ListGroup, Image, Form, Button } from "react-bootstrap";
 import Message from "../components/Message";
 import { addToCart, removeFromCart } from "../actions/cartActions";
 
@@ -100,33 +92,30 @@ const CartPage = () => {
           )}
         </Col>
         <Col md={4}>
-          <Card>
-            <ListGroup variant="flush">
-              <ListGroup.Item>
-                <h2>
-                  {/* reduce to accumulate quantity */}
-                  Subtotal ({cartItems.reduce((acc, curr) => acc + curr.qty, 0)}
-                  ) Items
-                </h2>
-                {/* reduce to accumulate price */}$
-                {cartItems.reduce(
-                  (acc, curr) => acc + curr.qty * curr.price,
-                  0
-                )}
-              </ListGroup.Item>
-              <ListGroup.Item className="d-grid gap-2">
-                <Button
-                  type="button"
-                  className="btn-block"
-                  variant="warning"
-                  disabled={cartItems.length === 0}
-                  onClick={checkoutHandler}
-                >
-                  Check Out
-                </Button>
-              </ListGroup.Item>
-            </ListGroup>
-          </Card>
+          <ListGroup variant="flush">
+            <ListGroup.Item>
+              <h2>
+                {/* reduce to accumulate quantity */}
+                Subtotal ({cartItems.reduce((acc, curr) => acc + curr.qty, 0)})
+                Items
+              </h2>
+              {/* reduce to accumulate price */}$
+              {cartItems
+                .reduce((acc, curr) => acc + curr.qty * curr.price, 0)
+                .toFixed(2)}
+            </ListGroup.Item>
+            <ListGroup.Item className="d-grid gap-2">
+              <Button
+                type="button"
+                className="btn-block"
+                variant="warning"
+                disabled={cartItems.length === 0}
+                onClick={checkoutHandler}
+              >
+                Check Out
+              </Button>
+            </ListGroup.Item>
+          </ListGroup>
         </Col>
         <Col md={2}></Col>
       </Row>

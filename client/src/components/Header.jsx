@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, Container, NavDropdown, Col } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import logo from "./logo.png";
 import { logout } from "../actions/userAction";
@@ -46,7 +46,7 @@ const Header = () => {
                     <NavDropdown.Item>Profile</NavDropdown.Item>
                   </LinkContainer>
                   <NavDropdown.Item onClick={logoutHandler}>
-                    Loutout
+                    Log Out
                   </NavDropdown.Item>
                 </NavDropdown>
               ) : (
@@ -60,6 +60,42 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
+      <Nav fill variant="tabs" defaultActiveKey="/home">
+        <Nav.Item className="tab">
+          <Nav.Link style={{ color: "white" }} href="/">
+            All Products
+          </Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item className="tab">
+          <Nav.Link style={{ color: "white" }} href="/">
+            Cameras
+          </Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item className="tab">
+          <Nav.Link style={{ color: "white" }} eventKey="link-2" href="/Lenses">
+            Lenses
+          </Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item className="tab">
+          <Nav.Link
+            style={{ color: "white" }}
+            eventKey="link-2"
+            href="/byprice"
+          >
+            Sort By Price
+          </Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item className="tab">
+          <Nav.Link style={{ color: "white" }} eventKey="link-2" href="/byname">
+            Sort By Name
+          </Nav.Link>
+        </Nav.Item>
+      </Nav>
     </header>
   );
 };

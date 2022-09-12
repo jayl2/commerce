@@ -18,6 +18,10 @@ const Home = () => {
   return (
     <div>
       <h1> All Products</h1>
+      <h3>
+        {" "}
+        <b>Cameras</b>
+      </h3>
       {loading ? (
         <h2 style={{ textAlign: "center" }}>Please wait...</h2>
       ) : error ? (
@@ -31,6 +35,8 @@ const Home = () => {
           ))}
         </Row>
       )}
+
+      <h3> Lenses</h3>
     </div>
   );
 };

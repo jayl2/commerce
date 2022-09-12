@@ -25,10 +25,16 @@ h3{
 width: 25rem;
 }
 
-.cardd{
-  padding: 3rem;
-  min-height: 35vh;
-  border: none;
+.cardd, .card{
+  padding: 4rem;
+  min-height: 36vh;
+  border:none;
+
+}
+.card-img:hover{
+  box-shadow:rgb(50, 49, 49);
+  width: 13rem;
+  border-left:2px;
 }
 
 .pic{

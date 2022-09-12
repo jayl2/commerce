@@ -17,7 +17,7 @@ const LensesPage = () => {
 
   return (
     <div>
-      <h4> Sort: A - Z</h4>
+      <h4> Lenses</h4>
       {loading ? (
         <h2 style={{ textAlign: "center" }}>Please wait...</h2>
       ) : error ? (

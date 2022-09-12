@@ -64,7 +64,19 @@ const Header = () => {
       <Nav fill variant="tabs" defaultActiveKey="/home">
         <Nav.Item className="tab">
           <Nav.Link style={{ color: "white" }} href="/">
+            All Products
+          </Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item className="tab">
+          <Nav.Link style={{ color: "white" }} href="/">
             Cameras
+          </Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item className="tab">
+          <Nav.Link style={{ color: "white" }} eventKey="link-2" href="/Lenses">
+            Lenses
           </Nav.Link>
         </Nav.Item>
 
@@ -79,7 +91,7 @@ const Header = () => {
         </Nav.Item>
 
         <Nav.Item className="tab">
-          <Nav.Link style={{ color: "white" }} eventKey="link-1" href="/byname">
+          <Nav.Link style={{ color: "white" }} eventKey="link-2" href="/byname">
             Sort By Name
           </Nav.Link>
         </Nav.Item>

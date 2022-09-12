@@ -103,7 +103,7 @@ const ProfilePage = () => {
                 onChange={(e) => setVerifyPassword(e.target.value)}
               ></Form.Control>
             </Form.Group>
-
+              <br></br>
             <Button type="submit" variant="primary">
               Update
             </Button>

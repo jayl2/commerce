@@ -1,6 +1,4 @@
-import React from "react";
-import { Container, Row, Col, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
 
 const Footer = () => {
   return (

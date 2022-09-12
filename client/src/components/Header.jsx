@@ -1,6 +1,5 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navbar, Nav, Container, NavDropdown, Col } from "react-bootstrap";
+import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import logo from "./logo.png";
 import { logout } from "../actions/userAction";
@@ -11,7 +10,7 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const logoutHandler = () => {
-    console.log("logout");
+    console.log("logging out");
     dispatch(logout());
   };
   return (
@@ -60,7 +59,6 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
       <Nav fill variant="tabs" defaultActiveKey="/home">
         <Nav.Item className="tab">
           <Nav.Link style={{ color: "white" }} href="/">

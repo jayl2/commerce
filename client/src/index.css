@@ -33,7 +33,7 @@ width: 25rem;
 }
 .card-img:hover{
   box-shadow:rgb(50, 49, 49);
-  width: 13rem;
+  width: 105%;
   border-left:2px;
 }
 

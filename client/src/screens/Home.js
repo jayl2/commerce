@@ -37,7 +37,10 @@ const Home = () => {
             ))}
         </Row>
       )}
-      <h3> Lenses</h3>
+      <h3>
+        {" "}
+        <b>Lenses</b>
+      </h3>
       <Row>
         {products
           .filter((product) => product.category === "Lens")
@@ -47,7 +50,6 @@ const Home = () => {
             </Col>
           ))}
       </Row>
-      )}
     </div>
   );
 };

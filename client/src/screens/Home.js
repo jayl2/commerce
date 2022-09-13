@@ -4,12 +4,27 @@ import Product from "../components/Product";
 import Message from "../components/Message";
 import { Row, Col } from "react-bootstrap";
 import { listProducts } from "../actions/productActions";
+import SearchBar from "../components/SearchBar";
 
 const Home = () => {
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
+  const { search } = window.location;
+  const query = new URLSearchParams(search).get("s");
+
+  const filterProducts = (products, query) => {
+    if (!query) {
+      return products;
+    }
+    return products.filter((product) => {
+      const productName = product.name.toLowerCase();
+      return productName.includes(query);
+    });
+  };
+
+  const filteredProducts = filterProducts(products, query);
 
   useEffect(() => {
     dispatch(listProducts());
@@ -17,6 +32,7 @@ const Home = () => {
 
   return (
     <div>
+      <div></div>
       <h1> All Products</h1>
       <h3>
         {" "}

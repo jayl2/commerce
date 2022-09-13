@@ -17,6 +17,7 @@ import SortByPrice from "./screens/SortByPrice";
 import SortByName from "./screens/SortByName";
 import LensesPage from "./screens/LensesPage";
 import CamerasPage from "./screens/CamerasPage";
+import SearchPage from "./screens/SearchPage";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
               <Route path="" element={<CartPage />} />
             </Route>
             <Route path="/" element={<Home />} />
+            <Route path="/search" element={<SearchPage />} />
           </Routes>
         </Container>
       </main>

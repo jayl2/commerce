@@ -13,6 +13,7 @@ const Header = () => {
     console.log("logging out");
     dispatch(logout());
   };
+
   return (
     <header>
       <Navbar
@@ -31,6 +32,7 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             {/* margin start...margin end */}
+
             <Nav className="ms-auto">
               <LinkContainer to="/cart">
                 <Nav.Link>
@@ -38,7 +40,6 @@ const Header = () => {
                   <i className="fas fa-shopping-cart"></i>Cart
                 </Nav.Link>
               </LinkContainer>
-
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id="username">
                   <LinkContainer to="/profile">
@@ -91,6 +92,12 @@ const Header = () => {
         <Nav.Item className="tab">
           <Nav.Link style={{ color: "white" }} eventKey="link-2" href="/byname">
             Sort By Name
+          </Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item className="tab">
+          <Nav.Link style={{ color: "white" }} eventKey="link-2" href="/search">
+            Search
           </Nav.Link>
         </Nav.Item>
       </Nav>

@@ -70,3 +70,9 @@ a{
   text-decoration: none;
   color: black
 }
+
+.search-input{
+  height:40px;
+  margin: 10px;
+  width: 85%;
+}

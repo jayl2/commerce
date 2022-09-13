@@ -1,6 +1,7 @@
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Rating from "./Rating";
+import SearchBar from "./SearchBar";
 
 const Product = ({ product }) => {
   return (

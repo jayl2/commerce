@@ -8,8 +8,8 @@
     "start": "node backend/server",
     "server": "nodemon backend/server",
     "dev": "node server.js",
-    "data:import": "node backend/seeder",
-    "data:destroy": "node backend/seeder -d"
+    "data:import": "node backend/seed",
+    "data:destroy": "node backend/seed -d"
   },
   "repository": {
     "type": "git",

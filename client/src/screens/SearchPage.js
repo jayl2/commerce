@@ -18,6 +18,7 @@ const SearchPage = () => {
   const getSearchProduct = (id) => {
     navigate(`/product/${id}`);
     console.log("clikc");
+    setSearchs(true);
   };
 
   const searchProducts = async () => {
@@ -41,16 +42,12 @@ const SearchPage = () => {
 
   const filteredProducts = filterProducts(products, query);
 
-  //   useEffect(() => {
-  //     dispatch(listProducts());
-  //   }, []);
-
   return (
     <div>
       <div>
         <Col>
           <SearchBar setSearchs={setSearchs} />
-          {searchs ? (
+          {filterProducts ? (
             <Row>
               {filteredProducts.map((product) => (
                 <Col
@@ -59,9 +56,14 @@ const SearchPage = () => {
                   lg={4}
                   xl={3}
                   key={product._id}
-                  className="asdf"
+                  style={{
+                    borderBottom: "solid 1.5px",
+                  }}
                 >
-                  <p>{product.name}</p>
+                  <p>
+                    <b>{product.name}</b>
+                  </p>
+                  <p>Rating: {product.rating} / 5</p>
                   <p>${product.price}</p>
                   <img
                     style={{ width: "50%" }}

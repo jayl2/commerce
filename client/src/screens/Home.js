@@ -24,8 +24,6 @@ const Home = () => {
     });
   };
 
-  const filteredProducts = filterProducts(products, query);
-
   useEffect(() => {
     dispatch(listProducts());
   }, [dispatch]);

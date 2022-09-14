@@ -13,7 +13,7 @@ const FinishOrder = () => {
 
   return (
     <div>
-      <Row>
+      <Row style={{ margin: "auto", marginTop: "10rem" }}>
         <Col>
           <Message>
             Your Order has been submitted on {today} at {time}

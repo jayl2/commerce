@@ -87,7 +87,7 @@ const SearchPage = () => {
                   />
                   <Row>
                     <Button
-                      style={{ width: "50%" }}
+                      style={{ width: "50%", margin: "20px" }}
                       onClick={() => {
                         deleteProduct(product._id);
                         deleteRealTime(product);

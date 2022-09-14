@@ -1,23 +1,22 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Home from "./screens/Home";
-import CartPage from "./screens/CartPage";
-import ProductPage from "./screens/ProductPage";
+import Home from "./Pages/Home";
+import CartPage from "./Pages/CartPage";
+import ProductPage from "./Pages/ProductPage";
 import { Container } from "react-bootstrap";
 import { Routes, Route } from "react-router-dom";
-import LoginPage from "./screens/LoginPage";
-import RegisterPage from "./screens/RegisterPage";
-import ProfilePage from "./screens/ProfilePage";
-import ShippingPage from "./screens/ShippingPage";
-import PaymentPage from "./screens/PaymentPage";
-import PlaceOrderPage from "./screens/PlaceOrderPage";
-import OrderPage from "./screens/OrderPage";
-import FinishOrder from "./screens/FinishOrder";
-import SortByPrice from "./screens/SortByPrice";
-import SortByName from "./screens/SortByName";
-import LensesPage from "./screens/LensesPage";
-import CamerasPage from "./screens/CamerasPage";
-import SearchPage from "./screens/SearchPage";
+import LoginPage from "./Pages/LoginPage";
+import RegisterPage from "./Pages/RegisterPage";
+import ProfilePage from "./Pages/ProfilePage";
+import ShippingPage from "./Pages/ShippingPage";
+import PaymentPage from "./Pages/PaymentPage";
+import PlaceOrderPage from "./Pages/PlaceOrderPage";
+import FinishOrder from "./Pages/FinishOrder";
+import SortByPrice from "./Pages/SortByPrice";
+import SortByName from "./Pages/SortByName";
+import LensesPage from "./Pages/LensesPage";
+import CamerasPage from "./Pages/CamerasPage";
+import SearchPage from "./Pages/SearchPage";
 
 function App() {
   return (
@@ -30,7 +29,6 @@ function App() {
             <Route path="/lenses" element={<LensesPage />} />
             <Route path="/cameras" element={<CamerasPage />} />
             <Route path="/finish" element={<FinishOrder />} />
-            <Route path="/order/:id" element={<OrderPage />} />
             <Route path="/byprice" element={<SortByPrice />} />
             <Route path="/byname" element={<SortByName />} />
             <Route path="/placeorder" element={<PlaceOrderPage />} />

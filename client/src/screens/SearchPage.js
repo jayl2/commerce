@@ -6,6 +6,7 @@ import { listProducts } from "../actions/productActions";
 import SearchBar from "../components/SearchBar";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 const SearchPage = () => {
   const [products, setProducts] = useState([]);
@@ -21,10 +22,24 @@ const SearchPage = () => {
     setSearchs(true);
   };
 
+  const deleteProduct = async (_id) => {
+    let res = await axios
+      .delete(`api/products/${_id}`)
+      .catch((error) => console.log(error));
+    console.log(res);
+  };
+
+  const deleteRealTime = async (item) => {
+    let index = products.indexOf(item);
+    let items = [...products];
+    items.splice(index, 1);
+    setProducts(items);
+  };
+
   const searchProducts = async () => {
     const res = await axios.get(`api/products`);
     setProducts(res.data);
-    console.log(res.data);
+    console.log(res);
   };
   useEffect(() => {
     searchProducts();
@@ -66,10 +81,21 @@ const SearchPage = () => {
                   <p>Rating: {product.rating} / 5</p>
                   <p>${product.price}</p>
                   <img
-                    style={{ width: "50%" }}
+                    style={{ width: "50%", cursor: "pointer" }}
                     src={product.image}
                     onClick={() => getSearchProduct(product._id)}
                   />
+                  <Row>
+                    <Button
+                      style={{ width: "50%" }}
+                      onClick={() => {
+                        deleteProduct(product._id);
+                        deleteRealTime(product);
+                      }}
+                    >
+                      Delete
+                    </Button>
+                  </Row>
                 </Col>
               ))}
             </Row>

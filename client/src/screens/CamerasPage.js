@@ -15,9 +15,31 @@ const CamerasPage = () => {
     dispatch(listProducts());
   }, [dispatch]);
 
+  //   return (
+  //     <div>
+  //       <h4> Cameras</h4>
+  //       {loading ? (
+  //         <h2 style={{ textAlign: "center" }}>Please wait...</h2>
+  //       ) : error ? (
+  //         <Message variant="danger">{error}</Message>
+  //       ) : (
+  //         <Row>
+  //           {products
+  //             .filter((product) => product.category === "Cameras")
+  //             .map((filteredProduct) => (
+  //               <Col key={filteredProduct._id} sm={12} md={6} lg={4} xl={3}>
+  //                 <Product product={filteredProduct} />
+  //               </Col>
+  //             ))}
+  //         </Row>
+  //       )}
+  //     </div>
+  //   );
+  // };
+
   return (
     <div>
-      <h4> Cameras</h4>
+      <h4> Sort: A - Z</h4>
       {loading ? (
         <h2 style={{ textAlign: "center" }}>Please wait...</h2>
       ) : error ? (
@@ -25,10 +47,10 @@ const CamerasPage = () => {
       ) : (
         <Row>
           {products
-            .filter((product) => product.category === "Cameras")
-            .map((filteredProduct) => (
-              <Col key={filteredProduct._id} sm={12} md={6} lg={4} xl={3}>
-                <Product product={filteredProduct} />
+            .sort((a, b) => (a.name > b.name ? 1 : -1))
+            .map((product) => (
+              <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                <Product product={product} />
               </Col>
             ))}
         </Row>

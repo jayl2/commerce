@@ -20,8 +20,12 @@
 
 ### **_Homepage_**
 
-![pic](https://i.imgur.com/RyBcMmG.png)
+![pic](https://i.imgur.com/pzRyLOh.png)
 
 
 ### **_Main Page_**
-![image](https://i.imgur.com/YotStLt.png)
+![image](https://i.imgur.com/1qKBbkU.png)
+
+
+### **_Check Out_**
+![image](https://i.imgur.com/0mXIfTl.png)

@@ -40,8 +40,7 @@ const LoginPage = () => {
         {error && (
           <h1>
             {" "}
-            Error!
-            <h2>{error}</h2>
+            <h2> Please Try Again.</h2>
           </h1>
         )}
         <Form onSubmit={submitHandler}>

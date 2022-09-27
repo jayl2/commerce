@@ -9,7 +9,8 @@
     "server": "nodemon backend/server",
     "dev": "node server.js",
     "data:import": "node backend/seed",
-    "data:destroy": "node backend/seed -d"
+    "data:destroy": "node backend/seed -d",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
